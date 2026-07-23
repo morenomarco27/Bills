@@ -1,0 +1,24 @@
+QUICK UPDATE STEPS
+
+1. Extract Bills_PWA_v2_Actual_Payment.zip.
+2. Open the extracted folder.
+3. Select all files and copy them.
+4. Paste them into:
+   C:\Users\manmoren\Downloads\Bills_PWA_Test_Package
+5. Choose Replace the files in the destination.
+6. Open that Bills_PWA_Test_Package folder in VS Code.
+7. Open Terminal and run:
+
+git add .
+git commit -m "Use actual payment workflow"
+git push origin main
+
+8. Wait about one minute.
+9. Open https://morenomarco27.github.io/Bills/
+10. Press Ctrl + Shift + R.
+11. Import Bills_Master_v2.xlsx.
+
+If the old version appears:
+F12 > Application > Service Workers > Unregister
+Application > Storage > Clear site data
+Reload.

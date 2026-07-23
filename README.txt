@@ -1,31 +1,30 @@
-BILLS CONTROL CENTER - TEST PACKAGE
+BILLS CONTROL CENTER V2 - ACTUAL PAYMENT WORKFLOW
 
-FILES
-- Bills_Master.xlsx: Excel master workbook with Bills, Funding Accounts, Monthly Plan, and instructions.
-- index.html: Main PWA file.
-- start_server.bat: Windows launcher.
-- start_server.command: macOS launcher.
-- start_server.sh: Linux launcher.
+WHAT CHANGED
+- Planned Payment was removed everywhere.
+- Actual Payment is displayed as "This Month."
+- Funding coverage compares Funding Selected against This Month.
+- Execute checkboxes change Status between Planned and Paid.
+- Remaining bill count uses payment Status, not dollar comparisons.
+- Excel import expects the Bills sheet column: Actual Payment ($).
 
-QUICK TEST
-1. Run the local server:
-   Windows: double-click start_server.bat
-   macOS: double-click start_server.command (you may need to allow it in Security)
-   Linux: run ./start_server.sh
-2. Open http://localhost:8000 in Chrome.
-3. Tap Import Excel and choose Bills_Master.xlsx.
-4. Update Ally accounts/buckets in the Funding tab.
-5. Use Auto-fill funding.
-6. Review the Execute tab.
-7. Export Excel to save PWA changes back into a workbook.
+UPDATE GITHUB
+1. Extract this ZIP.
+2. Copy all files from the extracted folder into your existing local Bills repo folder.
+3. Replace files when prompted.
+4. In VS Code terminal:
+   git add .
+   git commit -m "Use actual payment workflow"
+   git push origin main
+5. Wait for GitHub Pages deployment.
+6. Hard refresh the public site with Ctrl+Shift+R.
+7. If the old app remains: F12 > Application > Service Workers > Unregister, then Storage > Clear site data.
 
-PHONE TEST ON SAME WI-FI
-1. Start the server on the computer.
-2. Find the computer's local IP address.
-3. On the phone, open http://COMPUTER-IP:8000
-4. Use Chrome's Install App / Add to Home Screen option.
-
-DATA STORAGE
-The PWA saves its live data in that browser's local storage. Import/Export Excel is the portable backup and device-to-device sync method.
-
-NOTE: Excel import/export uses the official SheetJS browser script and needs an internet connection when the app first loads. The rest of the PWA can cache locally.
+WEEKEND TEST
+1. Import Bills_Master_v2.xlsx.
+2. Confirm Minimum Due and This Month totals.
+3. Update Funding account and bucket balances.
+4. Click Auto-fill funding.
+5. Confirm Remaining to Fund reaches $0.
+6. Use Execute while paying bills and mark each Paid.
+7. Export Excel when finished.
